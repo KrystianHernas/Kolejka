@@ -1,15 +1,12 @@
 #include <iostream>
-#include <cstddef>
 #include <queue>
 #include <string>
-#include <cstdlib>
 #include <vector>
 
-using namespace std;
 class Node {
 public:
 	int data;
-	Node *left, *right;
+	Node* left, * right;
 	Node(int d) {
 		data = d;
 		left = right = NULL;
@@ -34,13 +31,13 @@ public:
 			return root;
 		}
 	}
-	void levelOrder(Node * root) {
-		queue<Node *> q;
+	void levelOrder(Node* root) {
+		std::queue<Node*> q;
 		Node* n = root;
-		vector<int> exit;
+		std::vector<int> exit;
 
 		while (n != NULL) {
-			cout << n->data << ' ';
+			std::cout << n->data << ' ';
 
 			if (n->left != NULL) q.push(n->left);
 			if (n->right != NULL) q.push(n->right);
@@ -53,19 +50,19 @@ public:
 			}
 		}
 		for (int i = 0; i < exit.size(); i++) {
-			cout << exit[i] << ' ';
+			std::cout << exit[i] << ' ';
 		}
 	}
 
 
-};//End of Solution
+};
 int main() {
 	Solution myTree;
 	Node* root = NULL;
 	int T, data;
-	cin >> T;
+	std::cin >> T;
 	while (T-- > 0) {
-		cin >> data;
+		std::cin >> data;
 		root = myTree.insert(root, data);
 	}
 	myTree.levelOrder(root);
